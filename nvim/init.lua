@@ -14,18 +14,16 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- MAPPINGS
---
--- same as 'set nu'
-vim.o.number = true
--- map leader to space
-vim.g.mapleader = " "
 
 require("lazy").setup({
 	"williamboman/mason.nvim",
         "williamboman/mason.nvim",
     	"williamboman/mason-lspconfig.nvim",
         "neovim/nvim-lspconfig",
+ 	{
+         'nvim-telescope/telescope.nvim', tag = '0.1.5',
+          dependencies = { 'nvim-lua/plenary.nvim' }
+        }
 }
 )
 
@@ -37,4 +35,9 @@ require("lspconfig").rust_analyzer.setup {}
 
 --- LSP keybindings --- 
 require('lsp')
---
+
+--- REMAPS of keys ---
+require('remaps')
+
+--- TELESCOPE --- 
+require('telescope')
