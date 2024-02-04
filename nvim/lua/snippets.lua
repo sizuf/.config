@@ -1,4 +1,6 @@
 local cmp = require'cmp'
+local ls = require("luasnip")
+
 vim.opt.completeopt = "menu,menuone,noinsert"
 --- Sets the maximum items shown in the popup 
 vim.opt.pumheight = 5
@@ -7,6 +9,19 @@ cmp.setup({
 	mapping = cmp.mapping.preset.insert({ -- Preset: ^n, ^p, ^y, ^e, you know the drill..
 		["<C-d>"] = cmp.mapping.scroll_docs(-4),
 		["<C-f>"] = cmp.mapping.scroll_docs(4),
+		["<Tab>"] = cmp.mapping(function(fallback)
+                  -- This little snippet will confirm with tab, and if no entry is selected, will confirm the first item
+     			 if cmp.visible() then
+        			local entry = cmp.get_selected_entry()
+				if not entry then
+	  				cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+				else
+	  				cmp.confirm()
+				end
+      			  else
+       				 fallback()
+      			   end
+    end, {"i","s","c",})
 	}),
 	snippet = {
 		expand = function(args)
@@ -51,7 +66,6 @@ cmp.setup({
   })
 
 -- Keymaps for Luasnip
-local ls = require("luasnip")
 vim.keymap.set({ "i", "s" }, "<C-k>", function()
 	if ls.expand_or_jumpable() then
 		ls.expand_or_jump()
@@ -71,4 +85,4 @@ vim.keymap.set("i", "<C-l>", function()
 end)
 
 
-  return  require('cmp_nvim_lsp').default_capabilities()
+return  require('cmp_nvim_lsp').default_capabilities()
