@@ -1,6 +1,6 @@
 local wezterm = require('wezterm')
 
 return {
-    font_size = 12
+    font_size = 16
 }
 

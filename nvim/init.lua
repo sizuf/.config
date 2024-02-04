@@ -59,3 +59,6 @@ vim.cmd[[highlight Pmenu guibg=#d787af ctermbg=23]]
 
 -- Set the foreground color of the popup
 --vim.cmd[[highlight PmenuSel guifg=#282c34 ctermfg=5987163]]
+
+vim.cmd[[set background=dark]]
+vim.cmd('hi Comment ctermfg=LightGrey')
