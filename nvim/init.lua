@@ -1,7 +1,7 @@
 
 --- PLUGIN MANAGEMENT --
 --
- local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
     "git",
@@ -36,6 +36,24 @@ require("lazy").setup({
 		 'L3MON4D3/LuaSnip',
 		 'saadparwaiz1/cmp_luasnip'
 	   }
+	},
+	{
+	   'nvim-treesitter/nvim-treesitter', 
+	    run = ':TSUpdate',
+	},
+	{
+	  'marko-cerovac/material.nvim'
+        },
+	{
+	"rose-pine/neovim", name = "rose-pine"
+	},
+	{
+		'devsjc/vim-jb'
+	},
+	{
+		"catppuccin/nvim",
+		name = "catppuccin", 
+		priority = 1000 
 	}
 }
 )
@@ -53,12 +71,18 @@ require('remaps')
 --- TELESCOPE --- 
 require('telescope')
 
-
+require('treesitter')
 -- Set the background color of the popup to a slightly less bright pink
-vim.cmd[[highlight Pmenu guibg=#d787af ctermbg=23]]
+--vim.cmd[[highlight Pmenu guibg=#d787af ctermbg=23]]
 
 -- Set the foreground color of the popup
 --vim.cmd[[highlight PmenuSel guifg=#282c34 ctermfg=5987163]]
 
 vim.cmd[[set background=dark]]
-vim.cmd('hi Comment ctermfg=LightGrey')
+--vim.cmd('hi Comment ctermfg=LightGrey')
+
+-- this material_style definition has to be before setting the colorscheme
+-- absolute non sense. 
+--vim.g.material_style = "darker"
+--vim.cmd [[colorscheme material]]
+vim.cmd("colorscheme catppuccin-mocha")
