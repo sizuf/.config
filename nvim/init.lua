@@ -38,15 +38,20 @@ require("lazy").setup({
 	   }
 	},
 	{
-	   'nvim-treesitter/nvim-treesitter', 
-	    run = ':TSUpdate',
+	   	'nvim-treesitter/nvim-treesitter', 
+	    	run = ':TSUpdate',
 	},
 	{
-	  'marko-cerovac/material.nvim'
+		"tpope/vim-fugitive"
+	},
+	{
+		'stevearc/conform.nvim',
+		 opts = {},
+	},
+--------------- COLORSCHEMES ----------------
+	{
+	 	 'marko-cerovac/material.nvim'
         },
-	{
-	"rose-pine/neovim", name = "rose-pine"
-	},
 	{
 		'devsjc/vim-jb'
 	},
@@ -54,7 +59,20 @@ require("lazy").setup({
 		"catppuccin/nvim",
 		name = "catppuccin", 
 		priority = 1000 
-	}
+	},
+	
+	{
+		"briones-gabriel/darcula-solid.nvim", dependencies = {  "rktjmp/lush.nvim" }
+	},
+	{
+    		"xiantang/darcula-dark.nvim",
+	},
+	{
+		"mhartington/oceanic-next"
+	},
+	{
+		"sainnhe/sonokai"
+	},
 }
 )
 
@@ -72,6 +90,7 @@ require('remaps')
 require('telescope')
 
 require('treesitter')
+require('formatters')
 -- Set the background color of the popup to a slightly less bright pink
 --vim.cmd[[highlight Pmenu guibg=#d787af ctermbg=23]]
 
@@ -85,4 +104,21 @@ vim.cmd[[set background=dark]]
 -- absolute non sense. 
 --vim.g.material_style = "darker"
 --vim.cmd [[colorscheme material]]
-vim.cmd("colorscheme catppuccin-mocha")
+--vim.cmd("colorscheme catppuccin-mocha")
+
+vim.cmd("set termguicolors")
+vim.cmd("syntax enable")
+--decent dracula one
+--there is one more dracula-solid that looks quite like classical one
+--vim.cmd("colorscheme darcula-solid")
+--vim.cmd("colorscheme OceanicNext")
+vim.cmd("colorscheme sonokai")
+vim.g.sonokai_style = 'maia'
+ 
+--- FORMATTING --- 
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*",
+  callback = function(args)
+    require("conform").format({ bufnr = args.buf })
+  end,
+})

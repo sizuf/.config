@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-  export ZSH=~/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 export TERM="xterm-256color"
 
 # Set name of the theme to load.
@@ -54,7 +54,7 @@ plugins=(git)
 
 # User configuration
 
-  export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/local/sbin:/usr/sbin:/sbin:/opt/homebrew/bin"
+  export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/local/sbin:/usr/sbin:/sbin:/opt/homebrew/bin:/Users/simeondelchev/Library/Python/3.9/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -89,3 +89,20 @@ source $ZSH/oh-my-zsh.sh
 eval "$(zoxide init zsh)"
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $HOME/.cargo/env
+
+
+alias nv='nvim'
+
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+# java 
+export JAVA_HOME=$(/usr/libexec/java_home -v17)
+
+# ruby stuff
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+
+
+alias python='python3'

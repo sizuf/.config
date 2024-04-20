@@ -2,10 +2,17 @@
 local lspconfig = require('lspconfig')
 local cmp = require('snippets')
 lspconfig.pyright.setup {}
+lspconfig.clangd.setup{}
+lspconfig.solc.setup{}
 lspconfig.rust_analyzer.setup {
 	capabilities = cmp
 }
+lspconfig.pylsp.setup {}
 
+-- Web  
+lspconfig.cssls.setup{}
+lspconfig.html.setup{}
+lspconfig.tsserver.setup{}
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
