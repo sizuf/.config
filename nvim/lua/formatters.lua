@@ -7,10 +7,20 @@ require("conform").setup({
     -- Conform will run multiple formatters sequentially
     python = { "isort", "black" },
     -- Use a sub-list to run only the first available formatter
-    javascript = { { "prettierd", "prettier" } },
+    javascript = { {  "prettier" } },
+    typescript = { {  "prettier" } },
+    javascriptreact = { {  "prettier" } },
+    typescriptreact = { {  "prettier" } },
   },
   format_on_save = {
     -- These options will be passed to conform.format()
     lsp_fallback = true,
   },
+vim.keymap.set({ "n", "v" }, "<leader>mp", function()
+      require("conform").format({
+        lsp_fallback = true,
+        async = false,
+        timeout_ms = 500,
+      })
+    end, { desc = "Format file or range (in visual mode)" })
 })

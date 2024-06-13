@@ -72,6 +72,11 @@ require("lazy").setup({
 	},
 	{
 		"sainnhe/sonokai"
+	},	
+	{ 	"bluz71/vim-moonfly-colors",
+	         name = "moonfly",
+		lazy = false,
+		priority = 1000 
 	},
 }
 )
@@ -112,13 +117,8 @@ vim.cmd("syntax enable")
 --there is one more dracula-solid that looks quite like classical one
 --vim.cmd("colorscheme darcula-solid")
 --vim.cmd("colorscheme OceanicNext")
-vim.cmd("colorscheme sonokai")
-vim.g.sonokai_style = 'maia'
+--good high contrast
+--vim.cmd("colorscheme sonokai")
+--vim.g.sonokai_style = 'maia'
+vim.cmd("colorscheme  moonfly")
  
---- FORMATTING --- 
-vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = "*",
-  callback = function(args)
-    require("conform").format({ bufnr = args.buf })
-  end,
-})
