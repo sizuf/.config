@@ -12,7 +12,7 @@ lspconfig.pylsp.setup {}
 -- Web  
 lspconfig.cssls.setup{}
 lspconfig.html.setup{}
-lspconfig.tsserver.setup{}
+lspconfig.ts_ls.setup{}
 lspconfig.gopls.setup{}
 
 -- Global mappings.
@@ -22,6 +22,7 @@ vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
 
+vim.api.nvim_set_keymap('n', 'da', '<cmd>lua vim.lsp.buf.code_action()<CR>', { noremap = true, silent = true })
 -- Use LspAttach autocommand to only map the following keys
 -- after the language server attaches to the current buffer
 vim.api.nvim_create_autocmd('LspAttach', {
