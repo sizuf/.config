@@ -10,6 +10,7 @@ local fb_actions = require "telescope._extensions.file_browser.actions"
 require("telescope").setup {
   extensions = {
     file_browser = {
+      initial_mode="normal",
       path = vim.loop.cwd(),
       cwd = vim.loop.cwd(),
       cwd_to_path = false,

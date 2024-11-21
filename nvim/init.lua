@@ -48,11 +48,13 @@ require("lazy").setup({
 		'stevearc/conform.nvim',
 		 opts = {},
 	},
-{
-    "nvim-telescope/telescope-file-browser.nvim",
-    dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
-},
---------------- COLORSCHEMES ----------------
+	{
+    		"nvim-telescope/telescope-file-browser.nvim",
+    		dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
+	},
+
+
+	--------------- COLORSCHEMES ----------------
 	{
 	 	 'marko-cerovac/material.nvim'
         },
@@ -99,7 +101,7 @@ require('remaps')
 require("telescopee")
 
 --- TELESCOPE-FILE-BROSER ---
-vim.keymap.set("n", "<space>fb", function()
+vim.keymap.set("n", "<leader>fd", function()
 	require("telescope").extensions.file_browser.file_browser()
 end)
 
