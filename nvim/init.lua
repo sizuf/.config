@@ -52,6 +52,10 @@ require("lazy").setup({
     		"nvim-telescope/telescope-file-browser.nvim",
     		dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
 	},
+	{
+		--- Install all 10+ Java dependencies --- 
+		"https://github.com/nvim-java/nvim-java"
+	},
 
 
 	--------------- COLORSCHEMES ----------------

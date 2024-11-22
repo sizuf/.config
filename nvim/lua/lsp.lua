@@ -1,3 +1,6 @@
+-- Java
+require('java').setup()
+
 -- Setup language servers.
 local lspconfig = require('lspconfig')
 local cmp = require('snippets')
@@ -14,6 +17,9 @@ lspconfig.cssls.setup{}
 lspconfig.html.setup{}
 lspconfig.ts_ls.setup{}
 lspconfig.gopls.setup{}
+
+-- Java
+lspconfig.jdtls.setup({})
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
