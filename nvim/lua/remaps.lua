@@ -10,3 +10,8 @@ vim.keymap.set('n', 'yg', '"*yy')
 vim.keymap.set('n', 'pg', '"*p')
 
 
+
+vim.keymap.set('v', 'yg', '"*yy')
+vim.keymap.set('v', 'pg', '"*p')
+
+

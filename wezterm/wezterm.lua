@@ -5,7 +5,7 @@ local config = wezterm.config_builder()
 config.keys = {
   {
     key = 'v',
-    mods = 'CMD',
+    mods = 'CMD|SHIFT',
     action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' }
   },
   {
